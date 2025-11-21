@@ -1,22 +1,15 @@
 from collections import deque
 
-nomes = input()
-listaNomesada = [x for x in nomes.split()]
+palavras = input()
 
-listadecada = deque(listaNomesada)
-print(listadecada)
+queue = deque()
 
-listaDoisDecada = deque()
+for palavra in palavras.split():
+    queue.appendleft(palavra)
 
-for x in listadecada:
-    validacao = "nao"
-    for y in x:
-        if y == "a":
-            validacao = "sim"
-            listaDoisDecada.append(x)
-            break
-        else:
-            validacao = "nao"
+print(queue)
 
-for z in listaDoisDecada:
-    print(z)
+while queue:
+    palavra = queue.pop()
+    if "a" in palavra:
+        print(palavra)
